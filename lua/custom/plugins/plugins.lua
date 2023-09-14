@@ -1,5 +1,5 @@
 return {
-  {-- Adds git related signs to the gutter, as well as utilities for managing changes
+  { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -11,7 +11,8 @@ return {
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk, { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
+        vim.keymap.set('n', '<leader>gp', require('gitsigns').prev_hunk,
+          { buffer = bufnr, desc = '[G]o to [P]revious Hunk' })
         vim.keymap.set('n', '<leader>gn', require('gitsigns').next_hunk, { buffer = bufnr, desc = '[G]o to [N]ext Hunk' })
         vim.keymap.set('n', '<leader>ph', require('gitsigns').preview_hunk, { buffer = bufnr, desc = '[P]review [H]unk' })
       end,
@@ -48,7 +49,7 @@ return {
       },
     },
   },
-  {'nvim-tree/nvim-web-devicons'},
+  { 'nvim-tree/nvim-web-devicons' },
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -76,17 +77,17 @@ return {
       vim.o.timeoutlen = 300
       require("which-key").setup {
         window = {
-          border = "single", -- none, single, double, shadow
-          position = "bottom", -- bottom, top
-          margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
+          border = "single",        -- none, single, double, shadow
+          position = "bottom",      -- bottom, top
+          margin = { 1, 0, 1, 0 },  -- extra window margin [top, right, bottom, left]
           padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
           winblend = 0,
         },
         layout = {
           height = { min = 4, max = 25 }, -- min and max height of the columns
           width = { min = 20, max = 50 }, -- min and max width of the columns
-          spacing = 3, -- spacing between columns
-          align = "left", -- align columns left, center or right
+          spacing = 3,                    -- spacing between columns
+          align = "left",                 -- align columns left, center or right
         },
         mappings = {
           -- [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
@@ -141,5 +142,38 @@ return {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async'
   },
-  {'akinsho/bufferline.nvim', version="*", dependencies="nvim-tree/nvim-web-devicons"}
+  { 'akinsho/bufferline.nvim',    version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+  {
+    'echasnovski/mini.pairs',
+    version = false,
+    config = function()
+      require('mini.pairs').setup()
+    end,
+  },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    ---@type Flash.Config
+    opts = {},
+    -- stylua: ignore
+    keys = {
+      { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end,       desc = "Flash" },
+      { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o",               function() require("flash").remote() end,     desc = "Remote Flash" },
+      {
+        "R",
+        mode = { "o", "x" },
+        function() require("flash").treesitter_search() end,
+        desc =
+        "Treesitter Search"
+      },
+      {
+        "<c-s>",
+        mode = { "c" },
+        function() require("flash").toggle() end,
+        desc =
+        "Toggle Flash Search"
+      },
+    },
+  },
 }
