@@ -7,8 +7,7 @@ return {
       vim.cmd.colorscheme 'onedark'
     end
   },
-
-  {"tribela/vim-transparent"
-    -- Este plugin activa la transparencia
-  }
+  -- { "tribela/vim-transparent"
+  --   -- Este plugin activa la transparencia
+  -- },
 }

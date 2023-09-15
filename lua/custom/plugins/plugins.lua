@@ -89,41 +89,6 @@ return {
           spacing = 3,                    -- spacing between columns
           align = "left",                 -- align columns left, center or right
         },
-        mappings = {
-          -- [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
-          -- ["/"] = { "<Plug>(comment_toggle_linewise_current)", "Comment toggle current line" },
-          -- ["f"] = {
-          --   function()
-          --     require("lvim.core.telescope.custom-finders").find_project_files { previewer = false }
-          --   end,
-          --   "Find File",
-          -- },
-          ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-          b = {
-            name = "Buffers",
-            j = { "<cmd>BufferLinePick<cr>", "Jump" },
-            f = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
-            b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
-            n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
-            e = {
-              "<cmd>BufferLinePickClose<cr>",
-              "Pick which buffer to close",
-            },
-            h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
-            l = {
-              "<cmd>BufferLineCloseRight<cr>",
-              "Close all to the right",
-            },
-            D = {
-              "<cmd>BufferLineSortByDirectory<cr>",
-              "Sort by directory",
-            },
-            L = {
-              "<cmd>BufferLineSortByExtension<cr>",
-              "Sort by language",
-            },
-          },
-        }
       }
     end
   },
