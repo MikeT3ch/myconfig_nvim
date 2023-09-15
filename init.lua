@@ -36,10 +36,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- NOTE: Here is where you install your plugins.
---  You can configure plugins using the `config` key.
---  You can also configure plugins after the setup call,
---    as they will be available in your neovim runtime.
+-- Lazy config
 require('lazy').setup({
   -- Git related plugins
   'tpope/vim-fugitive',
@@ -49,23 +46,17 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   require 'kickstart.plugins.autoformat',
   -- require 'kickstart.plugins.debug',
 
   { import = 'custom.plugins' },
 }, {})
-require 'custom.config.pluginconfigs'
--- [[ Setting options ]]
--- See `:help vim.o`
-require 'custom.config.options'
 
--- [[ Basic Keymaps ]]
--- See `:help vim.keymap.set()`
-require 'custom.config.keymaps'
 
--- [[ Highlight on yank ]]
+
+-- Highlight on yank
 -- See `:help vim.highlight.on_yank()`
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -111,20 +102,21 @@ vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
 
--- [[ Configure Treesitter ]]
+
+-- Config require:
+
 -- See `:help nvim-treesitter`
-require 'custom.config.treesitter-config'
-
--- Diagnostic keymaps
-require 'custom.config.keymaps'
-
--- [[ Configure LSP ]]
-require 'custom.config.LSP-config'
-
--- [[ Configure nvim-cmp ]]
 -- See `:help cmp`
-
-require 'custom.config.nvim-cmp-config'
+-- See `:help vim.o` options
+-- See `:help vim.keymap.set()`
+require('custom.config')
+-- Keymaps
+-- Lsp config
+-- Cmp config
+-- plugins config
+-- Treesitter config
+-- WK config
+-- Options
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
