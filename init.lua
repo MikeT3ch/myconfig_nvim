@@ -1,15 +1,10 @@
 --[[
-  If you don't know anything about Lua, I recommend taking some time to read through
-  a guide. One possible example:
   - https://learnxinyminutes.com/docs/lua/
-
   And then you can explore or search through `:help lua-guide`
   - https://neovim.io/doc/user/lua-guide.html
 --]]
 
 -- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -46,12 +41,12 @@ require('lazy').setup({
   'tpope/vim-sleuth',
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',  opts = {} },
+  { 'numToStr/Comment.nvim', opts = {} },
 
   require 'kickstart.plugins.autoformat',
-  -- require 'kickstart.plugins.debug',
 
-  { import = 'custom.plugins' },
+  -- require 'kickstart.plugins.debug',
+  { import = 'core.plugins' },
 }, {})
 
 
@@ -83,33 +78,13 @@ require('telescope').setup {
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 
--- See `:help telescope.builtin`
-vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-vim.keymap.set('n', '<leader>/', function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-end, { desc = '[/] Fuzzily search in current buffer' })
-
-vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_files, { desc = 'Search [G]it [F]iles' })
-vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
-
-
 -- Config require:
 
 -- See `:help nvim-treesitter`
 -- See `:help cmp`
 -- See `:help vim.o` options
 -- See `:help vim.keymap.set()`
-require('custom.config')
+require('core.config')
 -- Keymaps
 -- Lsp config
 -- Cmp config

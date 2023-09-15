@@ -1,0 +1,7 @@
+require('core.config.keymaps')
+require('core.config.options')
+require('core.config.pluginconfigs')
+require('core.config.LSP-config')
+require('core.config.treesitter-config')
+require('core.config.nvim-cmp-config')
+require('core.config.wk-config')
