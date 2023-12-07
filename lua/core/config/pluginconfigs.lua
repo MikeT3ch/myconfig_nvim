@@ -9,3 +9,6 @@ require("nvim-web-devicons").setup({
     },
   },
 })
+
+-- vim.b.ale_javascript_eslint_executable = 'eslint_d'
+-- vim.b.ale_javascript_eslint_use_global = 1

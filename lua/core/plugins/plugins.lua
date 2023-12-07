@@ -29,7 +29,6 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
-    branch = 'v3',
     event = 'BufReadPre',
     config = function()
       local hl_name_list = {
@@ -96,7 +95,7 @@ return {
     opts = {
       options = {
         icons_enabled = false,
-        theme = 'onedark',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
@@ -122,6 +121,11 @@ return {
         end,
       }
     }
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
   },
   {
     "nvim-tree/nvim-tree.lua",
@@ -172,4 +176,27 @@ return {
       },
     },
   },
+  -- plugins/rest.lua
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    config = function()
+      require("rest-nvim").setup({
+        --- Get the same options from Packer setup
+      })
+    end
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  },
+  {
+    "OlegGulevskyy/better-ts-errors.nvim",
+    dependencies = { "MunifTanjim/nui.nvim" },
+    config = {
+      keymap = "<leader>dd"
+    }
+  }
 }

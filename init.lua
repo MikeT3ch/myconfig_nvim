@@ -3,7 +3,6 @@
   And then you can explore or search through `:help lua-guide`
   - https://neovim.io/doc/user/lua-guide.html
 --]]
-
 -- Set <space> as the leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -92,6 +91,8 @@ require('core.config')
 -- Treesitter config
 -- WK config
 -- Options
+
+vim.cmd [[colorscheme tokyonight]]
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

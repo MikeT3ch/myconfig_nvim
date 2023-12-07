@@ -1,3 +1,7 @@
+vim.g.material_style = "deep ocean"
+vim.api.nvim_set_option_value("colorcolumn", "70", {})
+
+
 vim.opt.relativenumber = true
 
 -- Set highlight on search
@@ -40,6 +44,6 @@ vim.o.termguicolors = true
 
 -- Code Folding
 vim.o.foldcolumn = '1' -- '0' is not bad
-vim.o.foldlevel = 99 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevel = 99   -- Using ufo provider need a large value, feel free to decrease the value
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true

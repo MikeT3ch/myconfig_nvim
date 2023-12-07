@@ -68,3 +68,11 @@ vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { de
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]resume' })
+
+vim.keymap.set('n', '<leader>m', '<cmd>Telescope symbols<CR>')
+vim.keymap.set('i', '<C-E>', '<cmd>Telescope symbols<CR>')
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+vim.keymap.set("n", "<leader>hr", "<cmd>lua require('rest-nvim').run()<CR>", { desc = '[H]ttp [R]un' })
