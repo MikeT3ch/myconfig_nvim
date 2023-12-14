@@ -124,6 +124,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
+    lazy = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
@@ -142,9 +143,14 @@ return {
     'kevinhwang91/nvim-ufo',
     requires = 'kevinhwang91/promise-async'
   },
-  { 'akinsho/bufferline.nvim',    version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons"
+  },
   {
     'echasnovski/mini.pairs',
+    lazy = true,
     version = false,
     config = function()
       require('mini.pairs').setup()
@@ -152,6 +158,7 @@ return {
   },
   {
     "folke/flash.nvim",
+    lazy = true,
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {},
@@ -195,15 +202,19 @@ return {
   {
     "OlegGulevskyy/better-ts-errors.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
+    lazy = true,
     config = {
       keymap = "<leader>dd"
     }
   },
   {
-    "shortcuts/no-neck-pain.nvim", version = "*"
+    "shortcuts/no-neck-pain.nvim",
+    lazy = true,
+    version = "*"
   },
   {
     "folke/zen-mode.nvim",
+    lazy = true,
     opts = {
       -- your configuration comes here
       -- or leave it empty to use the default settings
