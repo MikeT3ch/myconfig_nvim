@@ -1,6 +1,7 @@
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    lazy = true,
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
@@ -29,6 +30,7 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
+    lazy = true,
     event = 'BufReadPre',
     config = function()
       local hl_name_list = {
@@ -54,6 +56,7 @@ return {
 
   {
     'https://gitlab.com/HiPhish/rainbow-delimiters.nvim',
+    lazy = true,
     config = function()
       local colors = {
         Red = '#EF6D6D',
