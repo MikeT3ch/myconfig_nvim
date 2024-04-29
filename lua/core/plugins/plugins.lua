@@ -178,13 +178,20 @@ return {
   },
   -- plugins/rest.lua
   {
+    "vhyrro/luarocks.nvim",
+    priority = 1000,
+    config = true,
+    opts = {
+      rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }
+    }
+  },
+  {
     "rest-nvim/rest.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
     config = function()
-      require("rest-nvim").setup({
-        --- Get the same options from Packer setup
-      })
-    end
+      require("rest-nvim").setup()
+    end,
   },
   {
     "folke/tokyonight.nvim",
@@ -209,5 +216,8 @@ return {
       -- or leave it empty to use the default settings
       -- refer to the configuration section below
     }
+  },
+  {
+    "lambdalisue/suda.vim"
   },
 }
