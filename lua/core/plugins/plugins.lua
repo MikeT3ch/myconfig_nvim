@@ -220,4 +220,7 @@ return {
   {
     "lambdalisue/suda.vim"
   },
+  {
+    "wuelnerdotexe/vim-astro"
+  },
 }

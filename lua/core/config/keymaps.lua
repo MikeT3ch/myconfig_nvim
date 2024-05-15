@@ -72,7 +72,9 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 vim.keymap.set('n', '<leader>m', '<cmd>Telescope symbols<CR>')
 vim.keymap.set('i', '<C-E>', '<cmd>Telescope symbols<CR>')
 
+-- Mover lineas
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Rest nVim
 vim.keymap.set("n", "<leader>hr", "<cmd>lua require('rest-nvim').run()<CR>", { desc = '[H]ttp [R]un' })
