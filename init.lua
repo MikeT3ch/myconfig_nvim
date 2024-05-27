@@ -1,8 +1,3 @@
---[[
-  - https://learnxinyminutes.com/docs/lua/
-  And then you can explore or search through `:help lua-guide`
-  - https://neovim.io/doc/user/lua-guide.html
---]]
 -- Set <space> as the leader key
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -16,7 +11,6 @@ vim.opt.termguicolors = true
 
 
 -- Install package manager
---    `:help lazy.nvim.txt` for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system {
@@ -32,6 +26,7 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Lazy config
 require('lazy').setup({
+
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -51,7 +46,7 @@ require('lazy').setup({
 
 
 -- Highlight on yank
--- See `:help vim.highlight.on_yank()`
+
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
   callback = function()
@@ -61,8 +56,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- [[ Configure Telescope ]]
--- See `:help telescope` and `:help telescope.setup()`
+-- Telescope
 require('telescope').setup {
   defaults = {
     mappings = {
@@ -79,10 +73,6 @@ pcall(require('telescope').load_extension, 'fzf')
 
 -- Config require:
 
--- See `:help nvim-treesitter`
--- See `:help cmp`
--- See `:help vim.o` options
--- See `:help vim.keymap.set()`
 require('core.config')
 -- Keymaps
 -- Lsp config
@@ -91,6 +81,8 @@ require('core.config')
 -- Treesitter config
 -- WK config
 -- Options
+
+require('core.lsp_test')
 
 vim.cmd [[colorscheme tokyonight]]
 

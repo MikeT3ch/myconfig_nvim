@@ -1,6 +1,4 @@
---  The configuration is done below. Search for lspconfig to find it below.
 return {
-  -- LSP Configuration & Plugins
   'neovim/nvim-lspconfig',
   dependencies = {
     -- Automatically install LSPs to stdpath for neovim

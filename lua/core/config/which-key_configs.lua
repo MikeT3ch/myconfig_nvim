@@ -28,4 +28,14 @@ wk.register({
       "Sort by language",
     },
   },
+  s = {
+    name = "Search",
+  },
+  C = {
+    name = "Code Actions",
+  },
+  W = {
+    name = "Workspace Actions",
+  },
+
 }, { mode = "n", prefix = "<leader>" })

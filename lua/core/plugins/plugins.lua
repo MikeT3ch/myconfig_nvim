@@ -140,7 +140,7 @@ return {
   },
   {
     'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async'
+    dependencies = { "kevinhwang91/promise-async" },
   },
   { 'akinsho/bufferline.nvim',    version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
   {
@@ -202,7 +202,7 @@ return {
   {
     "OlegGulevskyy/better-ts-errors.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
-    config = {
+    opts = {
       keymap = "<leader>dd"
     }
   },
@@ -210,17 +210,20 @@ return {
     "shortcuts/no-neck-pain.nvim", version = "*"
   },
   {
-    "folke/zen-mode.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
-  },
-  {
+    -- Suda is a plugin to read or write files with sudo command.
     "lambdalisue/suda.vim"
   },
   {
     "wuelnerdotexe/vim-astro"
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
   },
 }

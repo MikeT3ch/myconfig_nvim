@@ -1,4 +1,7 @@
+-- bufferline
 require("bufferline").setup()
+
+-- Devicons
 require("nvim-web-devicons").setup({
   strict = true,
   override_by_extension = {
@@ -9,6 +12,3 @@ require("nvim-web-devicons").setup({
     },
   },
 })
-
--- vim.b.ale_javascript_eslint_executable = 'eslint_d'
--- vim.b.ale_javascript_eslint_use_global = 1

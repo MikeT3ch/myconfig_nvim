@@ -1,5 +1,4 @@
--- [[ Basic Keymaps ]]
--- See `:help vim.keymap.set()`
+-- Basic Keymaps
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
@@ -33,7 +32,6 @@ vim.keymap.set('n', '<C-l>', '<C-\\><C-N><C-w>l')
 vim.keymap.set('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')
 
 -- split
-
 vim.keymap.set('n', '|', '<cmd>vsplit<CR>')
 vim.keymap.set('n', '-', '<cmd>split<CR>')
 
@@ -50,7 +48,6 @@ vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 -- Telescope
 
--- See `:help telescope.builtin`
 vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = 'Find recently opened files' })
 vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = 'Find existing buffers' })
 vim.keymap.set('n', '<leader>/', function()

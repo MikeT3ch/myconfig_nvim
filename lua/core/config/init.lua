@@ -1,17 +1,17 @@
-require('core.config.keymaps')
+require('core.config.LSP_configs')
+
 require('core.config.options')
-require('core.config.pluginconfigs')
-require('core.config.LSP-config')
-require('core.config.treesitter-config')
-require('core.config.nvim-cmp-config')
-require('core.config.wk-config')
-require("tokyonight").setup({
-  -- use the night style
-  style = "moon",
-  styles = {
-    variables = { bold = true }
-  },
-  on_colors = function(colors)
-    colors.error = "#ff0000"
-  end
-})
+
+require('core.config.keymaps')
+
+require('core.config.theme')
+
+require('core.config.plugins_configs')
+
+require('core.config.nvim-cmp_configs')
+
+require('core.config.treesitter_configs')
+
+require('core.config.which-key_configs')
+
+require('core.config.LSP_configs')
