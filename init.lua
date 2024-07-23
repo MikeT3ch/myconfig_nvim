@@ -37,9 +37,9 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
-  require 'kickstart.plugins.autoformat',
+  require 'core.plugins.autoformat',
 
-  -- require 'kickstart.plugins.debug',
+  -- Require plugins
   { import = 'core.plugins' },
 }, {})
 

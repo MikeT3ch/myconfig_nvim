@@ -1,6 +1,7 @@
 return {
   { -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
+    lazy = true,
     opts = {
       -- See `:help gitsigns.txt`
       signs = {
@@ -104,6 +105,7 @@ return {
   { 'nvim-tree/nvim-web-devicons' },
   {
     'nvim-telescope/telescope.nvim',
+    lazy = true,
     branch = '0.1.x',
     dependencies = {
       'nvim-telescope/telescope-symbols.nvim',
@@ -124,6 +126,7 @@ return {
   },
   {
     "folke/todo-comments.nvim",
+    event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = {},
   },
@@ -142,9 +145,15 @@ return {
     'kevinhwang91/nvim-ufo',
     dependencies = { "kevinhwang91/promise-async" },
   },
-  { 'akinsho/bufferline.nvim',    version = "*", dependencies = "nvim-tree/nvim-web-devicons" },
+  {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons"
+  },
   {
     'echasnovski/mini.pairs',
+    event = "VeryLazy",
+    lazy = true,
     version = false,
     config = function()
       require('mini.pairs').setup()
@@ -152,6 +161,7 @@ return {
   },
   {
     "folke/flash.nvim",
+    lazy = true,
     event = "VeryLazy",
     ---@type Flash.Config
     opts = {},
@@ -187,6 +197,7 @@ return {
   },
   {
     "rest-nvim/rest.nvim",
+    lazy = true,
     ft = "http",
     dependencies = { "luarocks.nvim" },
     config = function()
@@ -201,17 +212,24 @@ return {
   },
   {
     "OlegGulevskyy/better-ts-errors.nvim",
+    event = "VeryLazy",
+    lazy = true,
     dependencies = { "MunifTanjim/nui.nvim" },
     opts = {
       keymap = "<leader>dd"
     }
   },
   {
-    "shortcuts/no-neck-pain.nvim", version = "*"
+    "shortcuts/no-neck-pain.nvim",
+    version = "*",
+    lazy = true,
+    event = "VeryLazy"
   },
   {
     -- Suda is a plugin to read or write files with sudo command.
-    "lambdalisue/suda.vim"
+    "lambdalisue/suda.vim",
+    event = "VeryLazy",
+    lazy = true,
   },
   {
     "wuelnerdotexe/vim-astro"
