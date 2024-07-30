@@ -99,7 +99,16 @@ mason_lspconfig.setup_handlers {
       settings = servers[server_name],
       filetypes = (servers[server_name] or {}).filetypes,
     }
-  end
+  end,
+  -- jdtls = function()
+  --   require('java').setup {
+  --     -- Your custom jdtls settings goes here
+  --   }
+  --
+  --   require('lspconfig').jdtls.setup {
+  --     -- Your custom nvim-java configuration goes here
+  --   }
+  -- end,
 }
 
 vim.lsp.start {

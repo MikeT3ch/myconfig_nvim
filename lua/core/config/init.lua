@@ -1,3 +1,5 @@
+require('core.config.java_configs')
+
 require('core.config.LSP_configs')
 
 require('core.config.options')

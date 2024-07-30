@@ -196,15 +196,6 @@ return {
     }
   },
   {
-    "rest-nvim/rest.nvim",
-    lazy = true,
-    ft = "http",
-    dependencies = { "luarocks.nvim" },
-    config = function()
-      require("rest-nvim").setup()
-    end,
-  },
-  {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
