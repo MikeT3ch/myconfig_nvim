@@ -235,4 +235,9 @@ return {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    opts = {} -- your configuration
+  },
 }

@@ -111,14 +111,14 @@ mason_lspconfig.setup_handlers {
   -- end,
 }
 
-vim.lsp.start {
-  name = "Bend LSP",
-  cmd = {
-    "npx", "ts-node",
-    vim.fn.expand("~/Documentos/GitProjects/bend_lsp/server/src/server.ts")
-  },
-  capabilities = vim.lsp.protocol.make_client_capabilities()
-}
+-- vim.lsp.start {
+--   name = "Bend LSP",
+--   cmd = {
+--     "npx", "ts-node",
+--     vim.fn.expand("~/Documentos/GitProjects/bend_lsp/server/src/server.ts")
+--   },
+--   capabilities = vim.lsp.protocol.make_client_capabilities()
+-- }
 ---
 local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
