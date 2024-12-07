@@ -240,4 +240,11 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {} -- your configuration
   },
+  {
+    "echasnovski/mini.icons",
+    version = false
+  },
+  {
+    'nvim-java/nvim-java'
+  },
 }

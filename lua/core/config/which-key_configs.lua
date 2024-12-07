@@ -3,39 +3,21 @@ if not status_ok then
   return
 end
 
-wk.register({
-  b = {
-    name = "Buffers",
-    j = { "<cmd>BufferLinePick<cr>", "Jump" },
-    f = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
-    b = { "<cmd>BufferLineCyclePrev<cr>", "Previous" },
-    n = { "<cmd>BufferLineCycleNext<cr>", "Next" },
-    e = {
-      "<cmd>BufferLinePickClose<cr>",
-      "Pick which buffer to close",
-    },
-    h = { "<cmd>BufferLineCloseLeft<cr>", "Close all to the left" },
-    l = {
-      "<cmd>BufferLineCloseRight<cr>",
-      "Close all to the right",
-    },
-    D = {
-      "<cmd>BufferLineSortByDirectory<cr>",
-      "Sort by directory",
-    },
-    L = {
-      "<cmd>BufferLineSortByExtension<cr>",
-      "Sort by language",
-    },
-  },
-  s = {
-    name = "Search",
-  },
-  C = {
-    name = "Code Actions",
-  },
-  W = {
-    name = "Workspace Actions",
-  },
-
-}, { mode = "n", prefix = "<leader>" })
+wk.add({
+  {
+    mode = { "n", "v" },
+    { "<leader>b",  group = "Buffers" },
+    { "<leader>bD", "<cmd>BufferLineSortByDirectory<cr>",         desc = "Sort by directory" },
+    { "<leader>bL", "<cmd>BufferLineSortByExtension<cr>",         desc = "Sort by language" },
+    { "<leader>bb", "<cmd>BufferLineCyclePrev<cr>",               desc = "Previous" },
+    { "<leader>be", "<cmd>BufferLinePickClose<cr>",               desc = "Pick which buffer to close" },
+    { "<leader>bf", "<cmd>Telescope buffers previewer=false<cr>", desc = "Find" },
+    { "<leader>bh", "<cmd>BufferLineCloseLeft<cr>",               desc = "Close all to the left" },
+    { "<leader>bj", "<cmd>BufferLinePick<cr>",                    desc = "Jump" },
+    { "<leader>bl", "<cmd>BufferLineCloseRight<cr>",              desc = "Close all to the right" },
+    { "<leader>bn", "<cmd>BufferLineCycleNext<cr>",               desc = "Next" },
+    { "<leader>C",  group = "Code Actions" },
+    { "<leader>W",  group = "Workspace Actions" },
+    { "<leader>b",  group = "Buffers" },
+    { "<leader>s",  group = "Search" },
+  }, })

@@ -1,3 +1,6 @@
+require('java').setup()
+require('lspconfig').jdtls.setup({})
+
 --  Configure LSP
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
@@ -57,7 +60,7 @@ local servers = {
   -- gopls = {},
   pyright = {},
   -- rust_analyzer = {},
-  tsserver = {},
+  ts_ls = {},
   html = { filetypes = { 'html', 'twig', 'hbs' } },
 
   lua_ls = {
@@ -100,11 +103,11 @@ mason_lspconfig.setup_handlers {
       filetypes = (servers[server_name] or {}).filetypes,
     }
   end,
+  --
   -- jdtls = function()
   --   require('java').setup {
   --     -- Your custom jdtls settings goes here
   --   }
-  --
   --   require('lspconfig').jdtls.setup {
   --     -- Your custom nvim-java configuration goes here
   --   }
