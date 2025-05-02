@@ -75,3 +75,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- Rest nVim
 vim.keymap.set("n", "<leader>hr", "<cmd>lua require('rest-nvim').run()<CR>", { desc = '[H]ttp [R]un' })
+
+-- Ouroboros
+vim.keymap.set('n', '<leader>hf', '<cmd>split | Ouroboros<CR>', { desc = 'Open [H]eader [F]ile in H-split' })

@@ -17,3 +17,5 @@ require('core.config.treesitter_configs')
 require('core.config.which-key_configs')
 
 require('core.config.LSP_configs')
+
+require('core.config.ufo_config')
