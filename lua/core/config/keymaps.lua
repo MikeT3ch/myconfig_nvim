@@ -36,10 +36,18 @@ vim.keymap.set('n', '|', '<cmd>vsplit<CR>')
 vim.keymap.set('n', '-', '<cmd>split<CR>')
 
 -- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous diagnostic message' })
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next diagnostic message' })
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump({ count = -1, float = true })
+end, { desc = 'Go to previous diagnostic message' })
+
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump({ count = 1, float = true })
+end, { desc = 'Go to next diagnostic message' })
+
 vim.keymap.set('n', '<leader>o', vim.diagnostic.open_float, { desc = 'Open floating diagnostic message' })
 vim.keymap.set('n', '<leader>O', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+vim.keymap.set('n', '<leader>lr', "<cmd>LspRestart<CR>", { desc = 'Restart LSP' })
 
 
 -- Ufo Code Folding

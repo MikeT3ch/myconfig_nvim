@@ -1,6 +1,3 @@
--- WARN: This keymaps dont make sense to me, at all. But idk, here we are.
--- I mean, this are useful? xD
-
 -- Configure Treesitter
 vim.filetype.add({
   pattern = { [".*/hypr/.*%.conf"] = "hyprlang" },

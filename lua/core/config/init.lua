@@ -4,8 +4,6 @@ require('core.config.theme')
 
 require('core.config.LSP_configs')
 
-require('core.config.LSP_configs')
-
 require('core.config.options')
 
 require('core.config.nvim-cmp_configs')
