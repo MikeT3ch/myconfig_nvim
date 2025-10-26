@@ -89,8 +89,8 @@ vim.lsp.config('gopls', {
     }
   }
 })
-require('java').setup()
-vim.lsp.config('jdtls', { cmd = { 'jdtls' } })
+-- require('java').setup()
+-- vim.lsp.config('jdtls', { cmd = { 'jdtls' } })
 
 -- Hyprlang LSP
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
