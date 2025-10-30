@@ -18,6 +18,5 @@ wk.add({
     { "<leader>bn", "<cmd>BufferLineCycleNext<cr>",               desc = "Next" },
     { "<leader>C",  group = "Code Actions" },
     { "<leader>W",  group = "Workspace Actions" },
-    { "<leader>b",  group = "Buffers" },
     { "<leader>s",  group = "Search" },
   }, })

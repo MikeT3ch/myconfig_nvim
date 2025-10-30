@@ -6,12 +6,14 @@ return {
       vim.o.timeout = true
       vim.o.timeoutlen = 300
       require("which-key").setup {
-        window = {
+        win = {
+          title = true,
           border = "single",        -- none, single, double, shadow
-          position = "bottom",      -- bottom, top
-          margin = { 1, 0, 1, 0 },  -- extra window margin [top, right, bottom, left]
           padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
-          winblend = 0,
+          wo = {
+            winblend = 0,
+
+          }
         },
         layout = {
           height = { min = 4, max = 25 }, -- min and max height of the columns
@@ -229,4 +231,17 @@ return {
       require("colorizer").setup {}
     end,
   },
+  --
+  {
+    "OXY2DEV/markview.nvim",
+    lazy = false,
+
+    -- For blink.cmp's completion
+    -- source
+    -- dependencies = {
+    --     "saghen/blink.cmp"
+    -- },
+  },
+  --
+  { 'MikeT3ch/progress.nvim', dir = "/home/michael/Documentos/GitProjects/lua/progress.nvim" },
 }

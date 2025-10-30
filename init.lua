@@ -50,7 +50,7 @@ require('core.config')
 -- Treesitter config
 -- WK config
 -- Options
-
+require("oil").setup()
 
 vim.cmd [[colorscheme tokyonight]]
 

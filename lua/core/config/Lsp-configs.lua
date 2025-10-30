@@ -1,4 +1,3 @@
---  Configure LSP
 --  This function gets run when an LSP connects to a particular buffer.
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("UserLspConf", {}),
@@ -20,10 +19,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
     nmap('<leader>Cd', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
     nmap('<leader>Ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
 
-    -- WARN: NOT WORKING 4 NOW
-    -- See `:help K` for why this keymap
-    -- nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
-    -- nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
+    nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
+    nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
 
     -- Lesser used LSP functionality
     nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
@@ -42,55 +39,56 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end
 })
 
-local servers = {
-  -- clangd = {},
-  -- gopls = {},
-  pyright = {},
-  -- rust_analyzer = {},
-  ts_ls = {},
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
-
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
-    },
-  },
-}
-
--- Astro config
-vim.lsp.config('astro-ls', { cmd = { 'astro-ls' }, filetypes = { 'astro' } })
-
 -- Setup neovim lua configuration
 require('neodev').setup()
+
+local servers = {
+  'clangd',
+  'gopls',
+  'pyright',
+  'ts_ls',
+  'html',
+  'lua_ls',
+  'rust_analyzer'
+}
+vim.lsp.enable(servers)
+
+require('mason-lspconfig').setup {
+  ensure_installed = servers
+}
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
--- Ensure the servers above are installed
-local mason_lspconfig = require 'mason-lspconfig'
 
-mason_lspconfig.setup {
-  ensure_installed = vim.tbl_keys(servers),
-}
+vim.lsp.config('*', {
+  capabilities = capabilities
+})
 
-
-vim.lsp.config('gopls', {
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
-      },
+local lsps_config = {
+  { 'lua_ls',   { workspace = { checkThirdParty = false }, telemetry = { enable = false } } },
+  { 'astro-ls', { cmd = { 'astro-ls' }, filetypes = { 'astro' } } },
+  { 'gopls', {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    settings = {
+      gopls = {
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+        },
+      }
     }
   }
-})
--- require('java').setup()
--- vim.lsp.config('jdtls', { cmd = { 'jdtls' } })
+  }
+}
+for _, lsp in pairs(lsps_config) do
+  local name, config = lsp[1], lsp[2]
+  vim.lsp.config(name, config)
+end
+
 
 -- Hyprlang LSP
 vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWinEnter' }, {
